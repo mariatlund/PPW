@@ -204,6 +204,8 @@ header {
   height: 100%;
   object-fit: cover;
   aspect-ratio: 16/9;
+
+  filter: grayscale(100);
 }
 
 .projects_card_text {
@@ -240,7 +242,7 @@ header {
 
 #about article {
   margin-inline: 2rem;
-  gap: 2rem;
+  /* gap: 2rem; */
 
   display: flex;
   flex-direction: column-reverse;
@@ -251,10 +253,11 @@ header {
   height: 100%;
   display: grid;
   justify-items: center;
+  align-content: center;
 }
 
 .about_graphics img {
-  max-width: 60%;
+  max-width: 70%;
   object-fit: cover;
   aspect-ratio: 1/1;
   border-radius: 100%;
@@ -314,11 +317,6 @@ footer section {
 footer .credit {
   display: grid;
   align-content: center;
-}
-
-.external-credits {
-  font-size: 0.8rem;
-  color: lightgray;
 }
 
 /* BUTTONS & HOVER EFFECTS */
@@ -383,12 +381,12 @@ a::after {
   background-color: var(--blue);
 
   position: relative;
-  left: 100%;
+  left: -100%;
 }
 
 a:hover::after {
   transition: all 0.3s ease-in-out;
-  transform: translate(-100%, 0) scaleX(100%);
+  transform: translate(100%, 0) scaleX(100%);
 }
 
 /* cards */
@@ -411,6 +409,69 @@ a:hover::after {
 /* home page buttons */
 .projects_card_text button:hover {
   scale: 102%;
+}
+
+/* headers */
+h2::after {
+  content: "";
+  display: block;
+  max-width: 100%;
+  aspect-ratio: 1/1;
+  height: 10px;
+  border-radius: 100%;
+  background-color: var(--lime);
+
+  position: relative;
+  left: 50%;
+  margin-top: 0.75rem;
+}
+
+h2:hover::after {
+  transition: all 0.3s ease-in-out;
+  transform: scaleX(1000%);
+  /* width: 100%; */
+  border-radius: 2%;
+}
+
+/* about image */
+.about_graphics::after {
+  content: "";
+  display: block;
+  width: 2%;
+  /* height: 100%; */
+  aspect-ratio: 1/1;
+
+  background-color: var(--blue);
+  border-radius: 100%;
+  position: relative;
+  top: -600%;
+  left: 13%;
+  z-index: 0;
+}
+
+.about_graphics::before {
+  content: "";
+  display: block;
+  width: 2%;
+  /* height: 100%; */
+  aspect-ratio: 1/1;
+
+  background-color: var(--lime);
+  border-radius: 100%;
+  position: relative;
+  top: 700%;
+  left: -20%;
+  z-index: 0;
+}
+
+.about_graphics:hover::after {
+  transition: all 0.3s ease-in-out;
+  transform: scale(2000%);
+}
+
+.about_graphics:hover::before {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1500%);
 }
 
 /* ---------- PROJECT PAGE ---------- */
@@ -485,7 +546,7 @@ a:hover::after {
   h1 {
     font-size: 5.6rem;
     line-height: 5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
   }
 
   h2 {
@@ -559,7 +620,7 @@ a:hover::after {
   }
 
   section {
-    margin-inline: 12rem;
+    margin-inline: 14rem;
   }
 
   /* ABOUT */
@@ -587,6 +648,17 @@ a:hover::after {
 
   .icon_info p {
     margin: 0;
+  }
+
+  .about_text ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+
+  .about_text h3 {
+    margin-bottom: 0;
+    margin-top: 1rem;
   }
 
   /* project page */
@@ -623,26 +695,5 @@ a:hover::after {
   .project_details_text {
     width: 100%;
     margin: 1rem;
-  }
-
-  /* PROJECT LIST */
-  .card {
-    max-width: 50%;
-  }
-
-  .pos1 {
-    margin-left: 5%;
-  }
-
-  .pos2 {
-    margin-left: 40%;
-  }
-
-  .pos3 {
-    margin-left: 11%;
-  }
-
-  .pos4 {
-    margin-left: 33%;
   }
 }
