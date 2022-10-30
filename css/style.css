@@ -1,5 +1,3 @@
-/* Tip, copy paste from 13c.01.01 & 13c.01.02 to get fonts and colors up and running ... */
-
 * {
   margin: 0px;
   padding: 0px;
@@ -72,7 +70,6 @@ header p {
 
 section {
   margin-bottom: 2rem;
-  /* margin: 4rem; */
 }
 
 /* NAVIGATION */
@@ -185,25 +182,19 @@ header {
 .projects_cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  /* width: 100%; */
-
-  /* margin: 2rem; */
-  /* margin-inline: 4rem; */
   gap: 3rem;
 }
 
 .projects_card {
   display: grid;
-  /* width: 100%; */
-  /* margin: 2rem; */
 }
 
 .projects_card_graphics {
-  /* max-width: 100%; */
+  width: 100%;
   height: 100%;
-  z-index: 1;
+  overflow: hidden;
+  position: relative;
   box-shadow: 1px 2px 3px lightgray;
-  aspect-ratio: 16/9;
 }
 
 .projects_card_graphics img {
@@ -211,20 +202,16 @@ header {
   height: 100%;
   object-fit: cover;
   aspect-ratio: 16/9;
+  filter: grayscale(0);
 
-  filter: grayscale(100);
+  border-radius: 3px;
 }
 
 .projects_card_text {
-  /* width: 100%; */
-  z-index: 2;
-  position: relative;
   min-width: 0;
   overflow-wrap: break-word;
   margin-top: 2rem;
-  margin-inline: 0.5rem;
-
-  display: grid;
+  margin-inline: 2rem;
 }
 
 /* ABOUT */
@@ -402,7 +389,7 @@ ul a::after {
   content: "";
   display: block;
   max-width: 100%;
-  height: 2.5px;
+  height: 4px;
   background-color: var(--blue);
   position: relative;
 
@@ -415,14 +402,62 @@ ul a:hover::after {
 }
 
 /* cards */
-.projects_card_graphics:hover ~ .projects_card_text h3 {
-  color: var(--blue);
+.projects_card_graphics:hover img {
+  transition: all 0.2s ease-in-out;
+  filter: grayscale(100);
 }
 
-.projects_card_graphics:hover img {
-  transition: all 0.3s ease-in-out;
-  filter: grayscale(0);
+.card_overlay {
+  background-color: var(--black);
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  border-radius: 3px;
+
+  transition: all 0.4s ease-in-out 0s;
 }
+
+.projects_card_graphics h4 {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+
+  color: var(--lime);
+  font-size: 1.8rem;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.projects_card_graphics:hover .card_overlay {
+  opacity: 0.8;
+}
+
+.projects_card_graphics:hover h4 {
+  top: 45%;
+  opacity: 1;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+/* .content .content-overlay {
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay{
+  opacity: 1;
+} */
 
 /* headers */
 h2::after {
@@ -457,7 +492,7 @@ h2:hover::after {
 }
 
 /* about image */
-/* .about_graphics::after {
+.about_graphics::after {
   content: "";
   display: block;
   width: 2%;
@@ -469,6 +504,9 @@ h2:hover::after {
   top: -600%;
   left: 13%;
   z-index: 0;
+
+  transform: scale(0%);
+  transition: all 0.3s ease-in-out;
 }
 
 .about_graphics::before {
@@ -483,73 +521,19 @@ h2:hover::after {
   top: 700%;
   left: -20%;
   z-index: 0;
+
+  transform: scale(0%);
+  transition: all 0.3s ease-in-out;
 }
 
 .about_graphics:hover::after {
-  transition: all 0.3s ease-in-out;
+  /* transition: all 0.3s ease-in-out; */
   transform: scale(2000%);
 }
 
 .about_graphics:hover::before {
-  transition: all 0.3s ease-in-out;
+  /* transition: all 0.3s ease-in-out; */
   transform: scale(1500%);
-} */
-
-/* ---------- PROJECT PAGE ---------- */
-
-/* intro header section */
-.project_intro {
-  max-width: 100%;
-  margin: 1rem;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap-reverse;
-}
-
-.project_info {
-  align-self: right;
-  justify-self: right;
-}
-
-/* visuals section */
-#project_visual {
-  max-width: 100%;
-  margin: 2rem;
-}
-
-#project_visual img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: contain;
-}
-
-/* details section */
-#project_details {
-  margin: 2rem;
-  max-width: 100%;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
-  gap: 1rem;
-}
-
-.project_details_graphics img {
-  width: 100%;
-  aspect-ratio: 1.25/1;
-  object-fit: cover;
-}
-
-.project_details_text {
-  display: grid;
-  margin: 1rem;
-}
-
-.project_details_text .a-button {
-  justify-self: right;
-  margin: 1rem;
 }
 
 /* ---------- MEDIA QUERIES ---------- */
@@ -618,19 +602,6 @@ h2:hover::after {
   section {
     margin: 4rem;
   }
-
-  /* PROJECT PAGE */
-  .project_intro {
-    margin: 2rem;
-  }
-
-  .project_intro_text {
-    max-width: 50%;
-  }
-
-  .project_details_text {
-    margin-inline: 4rem;
-  }
 }
 
 /* wide screen */
@@ -642,42 +613,6 @@ h2:hover::after {
 
   section {
     margin-inline: 14rem;
-  }
-
-  /* project page */
-
-  #project_visual {
-    margin-inline: 6rem;
-    max-width: 60%;
-  }
-
-  .project_info {
-    margin-inline: 2rem;
-  }
-
-  #project_details {
-    flex-wrap: nowrap;
-    align-items: center;
-    max-width: 100%;
-    gap: 8rem;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    margin-inline: 8rem;
-  }
-
-  .project_details_graphics {
-    object-fit: cover;
-  }
-
-  .project_details_graphics img {
-    width: 100%;
-  }
-
-  .project_details_text {
-    width: 100%;
-    margin: 1rem;
   }
 }
 
