@@ -183,6 +183,7 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   gap: 3rem;
+  margin-top: 2rem;
 }
 
 .projects_card {
