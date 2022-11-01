@@ -440,39 +440,8 @@ ul a:hover::after {
   transition: all 0.4s ease-in-out 0s;
 }
 
-/* .content .content-overlay {
-  background: rgba(0,0,0,0.7);
-  position: absolute;
-  height: 99%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0;
-  -webkit-transition: all 0.4s ease-in-out 0s;
-  -moz-transition: all 0.4s ease-in-out 0s;
-  transition: all 0.4s ease-in-out 0s;
-}
-
-.content:hover .content-overlay{
-  opacity: 1;
-} */
-
 /* headers */
 h2::after {
-  /* content: "";
-  display: block;
-  max-width: 100%;
-  aspect-ratio: 1/1;
-  height: 10px;
-  border-radius: 100%;
-  background-color: var(--lime);
-
-  position: absolute;
-  left: 50%;
-  margin-top: 0.75rem; */
-
   content: "";
   display: block;
   max-width: 100%;
@@ -492,7 +461,7 @@ h2:hover::after {
 }
 
 /* about image */
-.about_graphics::after {
+/* .about_graphics::after {
   content: "";
   display: block;
   width: 2%;
@@ -527,14 +496,12 @@ h2:hover::after {
 }
 
 .about_graphics:hover::after {
-  /* transition: all 0.3s ease-in-out; */
   transform: scale(2000%);
 }
 
 .about_graphics:hover::before {
-  /* transition: all 0.3s ease-in-out; */
   transform: scale(1500%);
-}
+} */
 
 /* ---------- MEDIA QUERIES ---------- */
 
