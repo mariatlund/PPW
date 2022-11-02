@@ -77,6 +77,11 @@ section {
   margin-bottom: 2rem;
 }
 
+h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* NAVIGATION */
 
 nav {
@@ -341,7 +346,7 @@ footer .credit {
 
 /* BUTTONS & HOVER EFFECTS */
 
-button {
+/* button {
   display: inline-block;
   height: 3rem;
   padding: 1rem 2rem;
@@ -374,7 +379,7 @@ button::after {
 button:hover::after {
   transition: all 0.6s;
   transform: translate(15.5rem, 0);
-}
+} */
 
 /* links & nav links*/
 ul a {
@@ -466,49 +471,6 @@ h2:hover::after {
   /* width: 100%; */
   border-radius: 0%;
 }
-
-/* about image */
-/* .about_graphics::after {
-  content: "";
-  display: block;
-  width: 2%;
-  aspect-ratio: 1/1;
-
-  background-color: var(--blue);
-  border-radius: 100%;
-  position: relative;
-  top: -600%;
-  left: 13%;
-  z-index: 0;
-
-  transform: scale(0%);
-  transition: all 0.3s ease-in-out;
-}
-
-.about_graphics::before {
-  content: "";
-  display: block;
-  width: 2%;
-  aspect-ratio: 1/1;
-
-  background-color: var(--lime);
-  border-radius: 100%;
-  position: relative;
-  top: 700%;
-  left: -20%;
-  z-index: 0;
-
-  transform: scale(0%);
-  transition: all 0.3s ease-in-out;
-}
-
-.about_graphics:hover::after {
-  transform: scale(2000%);
-}
-
-.about_graphics:hover::before {
-  transform: scale(1500%);
-} */
 
 /* ---------- MEDIA QUERIES ---------- */
 
